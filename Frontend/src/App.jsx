@@ -51,30 +51,39 @@ const onScanSuccess = async (decodedText) => {
 };
 
 
-  const startScanner = async () => {
-    if (!html5QrCodeRef.current) {
-      html5QrCodeRef.current = new Html5Qrcode(readerId);
-    }
+ const startScanner = async () => {
+  if (!html5QrCodeRef.current) {
+    html5QrCodeRef.current = new Html5Qrcode(readerId);
+  }
 
-    if (isScanningRef.current) return;
+  if (isScanningRef.current) return;
 
-    try {
-      const cameras = await Html5Qrcode.getCameras();
-      if (cameras && cameras.length) {
-        await html5QrCodeRef.current.start(
-          cameras[0].id,
-          { fps: 10, qrbox: 250 },
-          onScanSuccess
-        );
-        isScanningRef.current = true;
-        setResult("Scanning…");
-      } else {
-        setResult("No camera found.");
-      }
-    } catch (err) {
-      setResult("Camera error: " + err);
+  try {
+    const cameras = await Html5Qrcode.getCameras();
+    if (cameras && cameras.length) {
+      // Try to select the back camera
+      const backCamera = cameras.find(cam => 
+        cam.label.toLowerCase().includes("back") || cam.label.toLowerCase().includes("rear")
+      );
+
+      const cameraId = backCamera ? backCamera.id : cameras[0].id;
+
+      await html5QrCodeRef.current.start(
+        cameraId,
+        { fps: 10, qrbox: 250 },
+        onScanSuccess
+      );
+
+      isScanningRef.current = true;
+      setResult("Scanning…");
+    } else {
+      setResult("No camera found.");
     }
-  };
+  } catch (err) {
+    setResult("Camera error: " + err);
+  }
+};
+
 
   const stopScanner = async () => {
     if (html5QrCodeRef.current && isScanningRef.current) {
