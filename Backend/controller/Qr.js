@@ -22,8 +22,8 @@ export const uploadAndSendQRCodes = async (req, res) => {
       host: 'smtp-relay.brevo.com',
       port: 587,
       auth: {
-         user: '877bb6002@smtp-brevo.com',   // 🔑 Replace with your Brevo login email
-        pass: 'xsmtpsib-59d21b3be7f7c7e96818ff4e7a51735b89d7ffb8b5af627ffa08e8fe7d195917-AkSbRF3gOs8H74yM',   
+        user: process.env.BREVO_USER,   // 🔑 Replace with your Brevo login email
+        pass: process.env.BREVO_API_KEY,   
       },
     });
 
@@ -48,7 +48,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
       // ✅ Send email
       await transporter.sendMail({
-        from: '"QR Service" <vijay762005@gmail.com>',
+        from: `"QR Service" <${process.env.BREVO_EMAIL}>`,
         to: email,
         subject: 'Your Unique QR Code',
         text: `Hi ${name},\n\nPlease find attached your unique QR code.`,
