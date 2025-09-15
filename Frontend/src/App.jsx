@@ -35,7 +35,7 @@ const onScanSuccess = async (decodedText) => {
 
   // Send only the UUID to backend
   try {
-    const response = await axios.post("http://localhost:3000/api/qr/scan", {
+    const response = await axios.post("https://kks-qr.onrender.com/api/qr/scan", {
       uuid: uuid, // <-- only UUID
     });
 
