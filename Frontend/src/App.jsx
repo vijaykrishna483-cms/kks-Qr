@@ -41,7 +41,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/qr/scan",
+        "https://kks-qr.onrender.com/api/qr/scan",
         { uuid }
       );
 
