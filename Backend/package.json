@@ -13,8 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.891.0",
-    "aws-sdk": "^2.1692.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
@@ -25,5 +23,9 @@
     "qrcode": "^1.5.4",
     "uuid": "^13.0.0",
     "xlsx": "^0.18.5"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   }
 }
