@@ -17,41 +17,43 @@ export const uploadAndSendQRCodes = async (req, res) => {
     const sheetName = workbook.SheetNames[0];
     const sheetData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-    // 2️⃣ Setup Brevo
+    // 2️⃣ Setup Gmail SMTP
+    console.log( process.env.GMAIL_USER);
     const transporter = nodemailer.createTransport({
-      host: 'smtp-relay.brevo.com',
-      port: 587,
+      service: 'gmail',
       auth: {
-        user: process.env.BREVO_USER,   // 🔑 Replace with your Brevo login email
-        pass: process.env.BREVO_API_KEY,   
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS, // App Password
       },
     });
 
     for (const row of sheetData) {
-      const { id, name, email } = row;
+      const { id, name, email, count, kksid: kks_id } = row;
 
-      // ✅ Generate unique UUID for DB
       const uuid = uuidv4();
 
-      // ✅ Insert into DB with used=false
       await pool.query(
-        `INSERT INTO qr_codes (name, email, uuid, used)
-         VALUES ($1, $2, $3, false)
+        `INSERT INTO qr_codes (name, email, uuid, used, kks_id, count)
+         VALUES ($1, $2, $3, false, $4, $5)
          ON CONFLICT (email) DO NOTHING`,
-        [name, email, uuid]
+        [name, email, uuid, kks_id, count]
       );
 
-      // ✅ Create QR with UUID
       const qrData = `UUID:${uuid}`;
       const qrImage = await QRCode.toDataURL(qrData);
       const qrBuffer = Buffer.from(qrImage.split(',')[1], 'base64');
 
-      // ✅ Send email
       await transporter.sendMail({
-        from: `"QR Service" <${process.env.BREVO_EMAIL}>`,
+        from: `"QR Service" <${process.env.GMAIL_USER}>`,
         to: email,
         subject: 'Your Unique QR Code',
-        text: `Hi ${name},\n\nPlease find attached your unique QR code.`,
+        text: `Hi ${name},
+
+Please find attached your unique QR code.
+Count: ${count}
+
+Regards,
+QR Service`,
         attachments: [
           {
             filename: `qrcode-${id}.png`,

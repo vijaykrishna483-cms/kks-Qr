@@ -2,13 +2,16 @@ import { pool } from '../utils/db.js';
 
 export const scanQrCode = async (req, res) => {
   try {
-    const { uuid } = req.body; 
-      console.log('Received QR:', uuid); // frontend sends UUID after scanning QR
-    if (!uuid) return res.status(400).json({ error: 'UUID required' });
+    const { uuid } = req.body;
+    console.log('Received QR:', uuid);
 
-    // Check if QR exists and is unused
+    if (!uuid) {
+      return res.status(400).json({ error: 'UUID required' });
+    }
+
+    // ✅ Check if QR exists
     const result = await pool.query(
-      'SELECT * FROM qr_codes WHERE uuid=$1',
+      'SELECT * FROM qr_codes WHERE uuid = $1',
       [uuid]
     );
 
@@ -17,17 +20,27 @@ export const scanQrCode = async (req, res) => {
     }
 
     const record = result.rows[0];
+
     if (record.used) {
       return res.status(410).json({ error: 'QR code already used/expired' });
     }
 
-    // Mark as used
+    // ✅ Mark as used
     await pool.query(
-      'UPDATE qr_codes SET used=true WHERE uuid=$1',
+      'UPDATE qr_codes SET used = true WHERE uuid = $1',
       [uuid]
     );
 
-    res.json({ message: 'QR verified successfully', user: { name: record.name, email: record.email } });
+    // ✅ Send back all required details
+    res.json({
+      message: 'QR verified successfully',
+      user: {
+        name: record.name,
+        email: record.email,
+        kks_id: record.kks_id,   // <- new
+        count: record.count      // <- new
+      }
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error' });
