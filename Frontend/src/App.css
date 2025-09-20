@@ -1,10 +1,27 @@
+/* Ensure the flex container can fill the viewport */
+html, body {
+  height: 100%;        /* 👈 full height */
+  margin: 0;           /* 👈 remove default margin */
+}
+
 .scanner-container {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
   background: #f9f9f9;
-  min-height: 100vh;
+
+  min-height: 100vh;   /* 👈 use min-height instead of max-height */
+  display: flex;
+  flex-direction: column;
 }
+
+.footer {
+  margin-top: auto;    /* 👈 pushes footer to bottom */
+  padding: 40px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
 
 .title {
   color: #4caf50;

@@ -121,39 +121,43 @@ const App = () => {
   };
 
   return (
-    <div className="scanner-container">
-      <h1 className="title">KKS ONAM <br/>QR Code Scanner</h1>
+   <div className="scanner-container">
+  <h1 className="title">KKS ONAM <br/>QR Code Scanner</h1>
 
-      <div id={readerId} className="camera-box"></div>
+  <div id={readerId} className="camera-box"></div>
 
-      <div className="status">
-        {isLoading ? (
-          <>
-            <div className="loader"></div>
-            <p>Fetching details…</p>
-          </>
-        ) : (
-          result && <p>{result}</p>
-        )}
-      </div>
+  <div className="status">
+    {isLoading ? (
+      <>
+        <div className="loader"></div>
+        <p>Fetching details…</p>
+      </>
+    ) : (
+      result && <p>{result}</p>
+    )}
+  </div>
 
-      {userInfo && (
-        <div className="user-card">
-          <h3>Scanned User Details</h3>
-          <p><strong>Name:</strong> {userInfo.name}</p>
-          <p><strong>Email:</strong> {userInfo.email}</p>
-          <p><strong>KKS ID:</strong> {userInfo.kks_id}</p>
-          <p><strong>Count:</strong> {userInfo.count}</p>
-        </div>
-      )}
-
-      <button className="restart-btn" onClick={handleRestart}>
-        Scan Again
-      </button>
-
-      {/* Toast notifications container */}
-      <ToastContainer theme="colored" />
+  {userInfo && (
+    <div className="user-card">
+      <h3>Scanned User Details</h3>
+      <p><strong>Name:</strong> {userInfo.name}</p>
+      <p><strong>Email:</strong> {userInfo.email}</p>
+      <p><strong>KKS ID:</strong> {userInfo.kks_id}</p>
+      {/* <p><strong>Count:</strong> {userInfo.count}</p> */}
     </div>
+  )}
+
+  <button className="restart-btn" onClick={handleRestart}>
+    Scan Again
+  </button>
+
+  {/* Toast notifications container */}
+  <ToastContainer theme="colored" />
+
+  {/* 👇 Footer text */}
+  <footer className="footer">© Developed by Tensors</footer>
+</div>
+
   );
 };
 
