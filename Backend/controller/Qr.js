@@ -124,7 +124,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
   <tr><td style="padding:32px 40px 0 40px;">
     <p style="margin:0;font-size:16px;color:#111111;">Hello <strong>${data.name}</strong>,</p>
-    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.8;">Hope your end-sem preparations are going well! We are excited to invite you to <strong>Alakananda BBQ Night</strong> — an evening of great food and good vibes.</p>
+    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.8;">Hope your quiz preparations are going well! We are excited to invite you to <strong>Alakananda BBQ Night</strong> — an evening of great food and good vibes.</p>
   </td></tr>
 
   <tr><td style="padding:24px 40px 0 40px;">

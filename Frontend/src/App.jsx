@@ -40,7 +40,13 @@ const App = () => {
     }
 
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+      let backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+      
+      // Ensure backendUrl always has a protocol
+      if (backendUrl && !backendUrl.startsWith('http://') && !backendUrl.startsWith('https://')) {
+        backendUrl = `https://${backendUrl}`;
+      }
+      
       const response = await axios.post(
         `${backendUrl}/api/qr/scan`,
         { uuid }

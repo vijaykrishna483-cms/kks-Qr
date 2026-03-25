@@ -1,42 +1,111 @@
-[2026-03-25T10:28:23.703Z] ========== NEW RUN STARTED ==========
-[2026-03-25T10:28:23.709Z] 📋 Loaded 4 rows from bbq.csv
-[2026-03-25T10:28:25.233Z] ⚠️  DB SKIP   | vijaykrshns@gmail.com — already exists, skipped insert
-[2026-03-25T10:28:25.448Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID b81e9747-607a-45ab-a3b8-ed1a375f0e05
-[2026-03-25T10:28:25.662Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 08646b50-78da-4fe9-927e-29568681ec53
-[2026-03-25T10:28:25.878Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID 342db892-d903-4ca7-b42b-e9e5a23a8f3f
-[2026-03-25T10:28:25.934Z] 🎨 QR codes generated for all 4 recipients
-[2026-03-25T10:28:25.935Z] 📤 Sending batch 1 (4 emails)...
-[2026-03-25T10:28:29.626Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
-[2026-03-25T10:28:33.108Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
-[2026-03-25T10:28:36.662Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
-[2026-03-25T10:28:40.093Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
-[2026-03-25T10:28:40.093Z] ✅ Batch 1 complete
-[2026-03-25T10:28:40.093Z] ========== RUN COMPLETE ==========
-[2026-03-25T10:31:48.822Z] ========== NEW RUN STARTED ==========
-[2026-03-25T10:31:48.824Z] 📋 Loaded 4 rows from bbq.csv
-[2026-03-25T10:31:50.171Z] ✅ DB INSERT | vijaykrshns@gmail.com — saved with UUID c66d48a6-3303-49b6-9149-cca39b518a3d
-[2026-03-25T10:31:50.381Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID 9d7e5d20-4323-488f-a0e1-781666289f27
-[2026-03-25T10:31:50.591Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID ce0104d0-096e-4a1c-8a7c-d7262d832dd2
-[2026-03-25T10:31:50.804Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID a3dc0528-cbc2-4a5a-af73-4fba014dcb45
-[2026-03-25T10:31:50.819Z] 🎨 QR codes generated for all 4 recipients
-[2026-03-25T10:31:50.819Z] 📤 Sending batch 1 (4 emails)...
-[2026-03-25T10:31:54.207Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
-[2026-03-25T10:31:57.773Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
-[2026-03-25T10:32:01.176Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
-[2026-03-25T10:32:04.557Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
-[2026-03-25T10:32:04.558Z] ✅ Batch 1 complete
-[2026-03-25T10:32:04.558Z] ========== RUN COMPLETE ==========
-[2026-03-25T10:33:44.467Z] ========== NEW RUN STARTED ==========
-[2026-03-25T10:33:44.468Z] 📋 Loaded 4 rows from bbq.csv
-[2026-03-25T10:33:46.098Z] ✅ DB INSERT | vijaykrshns@gmail.com — saved with UUID 70f5d70e-62f1-4b16-9946-56a3651eded6
-[2026-03-25T10:33:46.310Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID 9cbc4cb2-4392-432c-b534-c4d02b937a5d
-[2026-03-25T10:33:46.522Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 72da5d9d-00f5-40d5-b3cb-cda1e4eac191
-[2026-03-25T10:33:46.737Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID 1fd0960a-0c2a-4f09-af11-cff8341d64b6
-[2026-03-25T10:33:46.758Z] 🎨 QR codes generated for all 4 recipients
-[2026-03-25T10:33:46.763Z] 📤 Sending batch 1 (4 emails)...
-[2026-03-25T10:33:50.049Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
-[2026-03-25T10:33:53.493Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
-[2026-03-25T10:33:56.868Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
-[2026-03-25T10:34:00.216Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
-[2026-03-25T10:34:00.217Z] ✅ Batch 1 complete
-[2026-03-25T10:34:00.218Z] ========== RUN COMPLETE ==========
+[2026-03-25T11:07:33.234Z] ========== NEW RUN STARTED ==========
+[2026-03-25T11:07:33.240Z] 📋 Loaded 51 rows from bbq.csv
+[2026-03-25T11:07:34.670Z] ✅ DB INSERT | am24m009@smail.iitm.ac.in — saved with UUID 63627a2c-1b30-4c3d-88eb-a7965fdf2bc0
+[2026-03-25T11:07:34.898Z] ✅ DB INSERT | am24m011@smail.iitm.ac.in — saved with UUID e90ab846-e9ff-4592-9263-03149ecfa87e
+[2026-03-25T11:07:35.126Z] ✅ DB INSERT | am24m015@smail.iitm.ac.in — saved with UUID 9001c803-2062-46b1-a282-393fa0bd31b7
+[2026-03-25T11:07:35.346Z] ✅ DB INSERT | am24m018@smail.iitm.ac.in — saved with UUID 6a492b96-23b9-4437-9160-dd53f68e3efa
+[2026-03-25T11:07:35.558Z] ✅ DB INSERT | am24m020@smail.iitm.ac.in — saved with UUID b217e5b4-17df-454e-9835-38acc32b601d
+[2026-03-25T11:07:35.773Z] ✅ DB INSERT | am24m024@smail.iitm.ac.in — saved with UUID 87c349ff-166c-4393-b783-3b70b1f3d950
+[2026-03-25T11:07:35.986Z] ✅ DB INSERT | am24m030@smail.iitm.ac.in — saved with UUID f336846d-7cf9-4beb-bf1c-e4ed97b44a65
+[2026-03-25T11:07:36.202Z] ✅ DB INSERT | be21b006@smail.iitm.ac.in — saved with UUID da905bb2-c91d-45a0-8b84-90115dfdf040
+[2026-03-25T11:07:36.413Z] ✅ DB INSERT | be21b011@smail.iitm.ac.in — saved with UUID 5054ea0a-0df6-449f-9703-44e210d7f984
+[2026-03-25T11:07:36.626Z] ✅ DB INSERT | be21b013@smail.iitm.ac.in — saved with UUID 6747f5f2-0255-4e3a-97db-899eefce3d4c
+[2026-03-25T11:07:36.839Z] ✅ DB INSERT | be21b015@smail.iitm.ac.in — saved with UUID 999faf76-b346-464e-81c2-9a4b70005468
+[2026-03-25T11:07:37.052Z] ✅ DB INSERT | be21b017@smail.iitm.ac.in — saved with UUID 067240f0-918e-4668-85dc-523328da7af0
+[2026-03-25T11:07:37.266Z] ✅ DB INSERT | be21b040@smail.iitm.ac.in — saved with UUID 4fcf9de4-ca27-4b13-86a2-0faf78463e7c
+[2026-03-25T11:07:37.479Z] ✅ DB INSERT | bs21b001@smail.iitm.ac.in — saved with UUID 828f5966-45d8-4114-b766-e19a1bf38cc3
+[2026-03-25T11:07:37.694Z] ✅ DB INSERT | bs21b008@smail.iitm.ac.in — saved with UUID 82f480bf-4085-4e92-b7e9-652db77a1885
+[2026-03-25T11:07:37.905Z] ✅ DB INSERT | bs21b012@smail.iitm.ac.in — saved with UUID 45e53e99-b079-4c08-9e13-de27368439be
+[2026-03-25T11:07:38.116Z] ✅ DB INSERT | bs21b013@smail.iitm.ac.in — saved with UUID b8b66519-6061-4a76-a694-60af7ae465cf
+[2026-03-25T11:07:38.328Z] ✅ DB INSERT | bs21b014@smail.iitm.ac.in — saved with UUID c5a4b93c-1e44-4263-9339-709346a1529c
+[2026-03-25T11:07:38.539Z] ✅ DB INSERT | bs21b015@smail.iitm.ac.in — saved with UUID c8ba4e20-8157-4db2-9edb-cb78680d7e1d
+[2026-03-25T11:07:38.751Z] ✅ DB INSERT | bs21b029@smail.iitm.ac.in — saved with UUID 99989667-98a9-4bd6-bd7f-b619d08baeff
+[2026-03-25T11:07:38.963Z] ✅ DB INSERT | bs21b036@smail.iitm.ac.in — saved with UUID 5f766c18-313d-419b-a84b-28fe63017e6d
+[2026-03-25T11:07:39.176Z] ✅ DB INSERT | bs21b037@smail.iitm.ac.in — saved with UUID f9bffeab-b9f7-4127-81a0-3e3bbd7e70e5
+[2026-03-25T11:07:39.390Z] ✅ DB INSERT | ed23b001@smail.iitm.ac.in — saved with UUID 1cf63892-d911-4dd2-ae68-b3210ac42a88
+[2026-03-25T11:07:39.602Z] ✅ DB INSERT | ed23b004@smail.iitm.ac.in — saved with UUID 2ecf543e-b4e6-49fb-9f89-f457d1cc3b0e
+[2026-03-25T11:07:39.814Z] ✅ DB INSERT | ed23b007@smail.iitm.ac.in — saved with UUID 1eb62dee-8813-47ed-a6ab-0625f3d4fa0d
+[2026-03-25T11:07:40.454Z] ✅ DB INSERT | ed23b012@smail.iitm.ac.in — saved with UUID 5a3b7252-6921-455d-82ec-70ba758d0465
+[2026-03-25T11:07:40.666Z] ✅ DB INSERT | ed23b016@smail.iitm.ac.in — saved with UUID e4054c4c-43f9-422c-b8c7-516107b17dd5
+[2026-03-25T11:07:40.877Z] ✅ DB INSERT | ed23b017@smail.iitm.ac.in — saved with UUID 7c01f376-b836-4759-8c48-d12bb55e981d
+[2026-03-25T11:07:41.098Z] ✅ DB INSERT | ed23b018@smail.iitm.ac.in — saved with UUID 441f3c4e-ff3a-41c0-9312-f135f1406d5e
+[2026-03-25T11:07:41.309Z] ✅ DB INSERT | ed23b020@smail.iitm.ac.in — saved with UUID 679a9391-037c-4c48-aab1-019e31db0a1e
+[2026-03-25T11:07:41.519Z] ✅ DB INSERT | ed23b021@smail.iitm.ac.in — saved with UUID b78fba94-dfc3-4e4c-96e6-7dc1746b4dcd
+[2026-03-25T11:07:41.731Z] ✅ DB INSERT | ed23b022@smail.iitm.ac.in — saved with UUID 26cb2bba-fac2-44eb-b0c2-fdc7243928ec
+[2026-03-25T11:07:41.943Z] ✅ DB INSERT | ed23b023@smail.iitm.ac.in — saved with UUID 501ace56-3ab7-447d-aa71-8a47c611f136
+[2026-03-25T11:07:42.566Z] ✅ DB INSERT | ed23b024@smail.iitm.ac.in — saved with UUID 3a7423ba-3a93-48bc-a9e0-f50be1d7cdc5
+[2026-03-25T11:07:42.777Z] ✅ DB INSERT | ed23b026@smail.iitm.ac.in — saved with UUID 27977a14-bafe-4050-a4f1-729507636989
+[2026-03-25T11:07:42.991Z] ✅ DB INSERT | ed23b027@smail.iitm.ac.in — saved with UUID d5383bf3-879b-4b8d-b29b-5a30379debd4
+[2026-03-25T11:07:43.202Z] ✅ DB INSERT | ed23b029@smail.iitm.ac.in — saved with UUID fe0b2069-1dd0-4d9c-aaef-5d21710b89b9
+[2026-03-25T11:07:43.412Z] ✅ DB INSERT | ed23b031@smail.iitm.ac.in — saved with UUID c4412722-3ee1-42e2-aae1-b95fb2347c26
+[2026-03-25T11:07:43.626Z] ✅ DB INSERT | ed23b034@smail.iitm.ac.in — saved with UUID 582ba1f3-9c59-4dcd-bb2b-ea83e68d49b3
+[2026-03-25T11:07:43.836Z] ✅ DB INSERT | ed23b036@smail.iitm.ac.in — saved with UUID 162b5bb2-4598-458d-98c2-4ad6885646cd
+[2026-03-25T11:07:44.047Z] ✅ DB INSERT | ed23b037@smail.iitm.ac.in — saved with UUID 1597548d-61ef-4d9d-930d-883fe1429212
+[2026-03-25T11:07:44.259Z] ✅ DB INSERT | ed23b038@smail.iitm.ac.in — saved with UUID 8a872fd8-5a15-4c36-9199-190acd83e5bf
+[2026-03-25T11:07:44.476Z] ✅ DB INSERT | ed23b040@smail.iitm.ac.in — saved with UUID 1a64a3b0-1c55-4631-b869-db2ce933bde6
+[2026-03-25T11:07:44.691Z] ✅ DB INSERT | ed23b041@smail.iitm.ac.in — saved with UUID 01c52dce-5765-4eb5-9a9b-d34930728c08
+[2026-03-25T11:07:45.318Z] ✅ DB INSERT | ed23b046@smail.iitm.ac.in — saved with UUID 33b867ec-4844-457a-8809-4fd4ccf8e9db
+[2026-03-25T11:07:45.532Z] ✅ DB INSERT | ed23b055@smail.iitm.ac.in — saved with UUID 541f0c95-d180-4ee9-be8d-d92d1c5c6c90
+[2026-03-25T11:07:45.743Z] ✅ DB INSERT | ed23b061@smail.iitm.ac.in — saved with UUID a0d630b9-15c6-4d33-9f82-092f0b50e050
+[2026-03-25T11:07:45.954Z] ✅ DB INSERT | ed23b063@smail.iitm.ac.in — saved with UUID 5333b2e2-87c1-4b0a-b5ef-b38ffeb20b82
+[2026-03-25T11:07:46.165Z] ✅ DB INSERT | ed23b065@smail.iitm.ac.in — saved with UUID 8fbc2723-7379-4248-b67c-94e1011d9b7f
+[2026-03-25T11:07:46.378Z] ✅ DB INSERT | ed23b068@smail.iitm.ac.in — saved with UUID 5e065fd6-964f-402b-88b8-4ab60ba8052d
+[2026-03-25T11:07:46.588Z] ⚠️  DB SKIP   | na23b021@smail.iitm.ac.in — already exists, skipped insert
+[2026-03-25T11:07:46.743Z] 🎨 QR codes generated for all 51 recipients
+[2026-03-25T11:07:46.744Z] 📤 Sending batch 1 (50 emails)...
+[2026-03-25T11:07:50.060Z] ✅ MAIL SENT | am24m009@smail.iitm.ac.in (Kailash L)
+[2026-03-25T11:07:53.575Z] ✅ MAIL SENT | am24m011@smail.iitm.ac.in (Muhammed Hamdan S M)
+[2026-03-25T11:07:57.017Z] ✅ MAIL SENT | am24m015@smail.iitm.ac.in (Surya Pratap Singh)
+[2026-03-25T11:08:00.491Z] ✅ MAIL SENT | am24m018@smail.iitm.ac.in (Vikas Chandra Dewangan)
+[2026-03-25T11:08:03.830Z] ✅ MAIL SENT | am24m020@smail.iitm.ac.in (Yuvaraj N)
+[2026-03-25T11:08:07.215Z] ✅ MAIL SENT | am24m024@smail.iitm.ac.in (Deepak Kothakota)
+[2026-03-25T11:08:10.903Z] ✅ MAIL SENT | am24m030@smail.iitm.ac.in (Shanmugapriyan N)
+[2026-03-25T11:08:15.249Z] ✅ MAIL SENT | be21b006@smail.iitm.ac.in (Anurag N)
+[2026-03-25T11:08:18.653Z] ✅ MAIL SENT | be21b011@smail.iitm.ac.in (Chetan Reddy G R)
+[2026-03-25T11:08:22.148Z] ✅ MAIL SENT | be21b013@smail.iitm.ac.in (Choppala Rahul)
+[2026-03-25T11:08:25.571Z] ✅ MAIL SENT | be21b015@smail.iitm.ac.in (Dikshant Pravin Khare)
+[2026-03-25T11:08:29.005Z] ✅ MAIL SENT | be21b017@smail.iitm.ac.in (Harish Balaji G K)
+[2026-03-25T11:08:32.278Z] ✅ MAIL SENT | be21b040@smail.iitm.ac.in (Sumedh Sanjay Kangne)
+[2026-03-25T11:08:35.806Z] ✅ MAIL SENT | bs21b001@smail.iitm.ac.in (Aadit Mahajan)
+[2026-03-25T11:08:39.112Z] ✅ MAIL SENT | bs21b008@smail.iitm.ac.in (Astitwa Srijan)
+[2026-03-25T11:08:42.653Z] ✅ MAIL SENT | bs21b012@smail.iitm.ac.in (Deepak Kumar Raushan)
+[2026-03-25T11:08:46.162Z] ✅ MAIL SENT | bs21b013@smail.iitm.ac.in (Deepak Kumar S)
+[2026-03-25T11:08:49.551Z] ✅ MAIL SENT | bs21b014@smail.iitm.ac.in (Elamurugan R)
+[2026-03-25T11:08:53.029Z] ✅ MAIL SENT | bs21b015@smail.iitm.ac.in (Eslavath Pavan Kumar)
+[2026-03-25T11:08:56.378Z] ✅ MAIL SENT | bs21b029@smail.iitm.ac.in (Salihundam Srinivas Rahul)
+[2026-03-25T11:08:59.812Z] ✅ MAIL SENT | bs21b036@smail.iitm.ac.in (Suraj Kiran S)
+[2026-03-25T11:09:03.258Z] ✅ MAIL SENT | bs21b037@smail.iitm.ac.in (Sutej Kumar Jal)
+[2026-03-25T11:09:06.675Z] ✅ MAIL SENT | ed23b001@smail.iitm.ac.in (Adesh Lokare)
+[2026-03-25T11:09:09.987Z] ✅ MAIL SENT | ed23b004@smail.iitm.ac.in (Aincha Srivathsav)
+[2026-03-25T11:09:13.493Z] ✅ MAIL SENT | ed23b007@smail.iitm.ac.in (Anup Atul Kharul)
+[2026-03-25T11:09:17.309Z] ✅ MAIL SENT | ed23b012@smail.iitm.ac.in (Bhosale Arjun Prakash)
+[2026-03-25T11:09:20.635Z] ✅ MAIL SENT | ed23b016@smail.iitm.ac.in (Derek Oliver F)
+[2026-03-25T11:09:24.258Z] ✅ MAIL SENT | ed23b017@smail.iitm.ac.in (Devadarshan U N)
+[2026-03-25T11:09:27.686Z] ✅ MAIL SENT | ed23b018@smail.iitm.ac.in (Dharunpathi T)
+[2026-03-25T11:09:31.002Z] ✅ MAIL SENT | ed23b020@smail.iitm.ac.in (Divyesh Kumar Nagaraj)
+[2026-03-25T11:09:34.566Z] ✅ MAIL SENT | ed23b021@smail.iitm.ac.in (Gaikwad Shreyas Dattatray)
+[2026-03-25T11:09:37.877Z] ✅ MAIL SENT | ed23b022@smail.iitm.ac.in (Garv)
+[2026-03-25T11:09:41.216Z] ✅ MAIL SENT | ed23b023@smail.iitm.ac.in (Gurukiran B A)
+[2026-03-25T11:09:44.683Z] ✅ MAIL SENT | ed23b024@smail.iitm.ac.in (Hayagriv Venkatesh)
+[2026-03-25T11:09:48.032Z] ✅ MAIL SENT | ed23b026@smail.iitm.ac.in (Ishan)
+[2026-03-25T11:09:51.533Z] ✅ MAIL SENT | ed23b027@smail.iitm.ac.in (Kanak Kuldeep Varma)
+[2026-03-25T11:09:54.898Z] ✅ MAIL SENT | ed23b029@smail.iitm.ac.in (Keerthi Bhushan Kumar)
+[2026-03-25T11:09:58.239Z] ✅ MAIL SENT | ed23b031@smail.iitm.ac.in (Krish Satpati)
+[2026-03-25T11:10:01.657Z] ✅ MAIL SENT | ed23b034@smail.iitm.ac.in (Pappula Sai Siddartha Reddy)
+[2026-03-25T11:10:06.329Z] ✅ MAIL SENT | ed23b036@smail.iitm.ac.in (Pranav Adhityaa D)
+[2026-03-25T11:10:09.809Z] ✅ MAIL SENT | ed23b037@smail.iitm.ac.in (Pranav Bhatnagar)
+[2026-03-25T11:10:13.088Z] ✅ MAIL SENT | ed23b038@smail.iitm.ac.in (Praveen Kumar S)
+[2026-03-25T11:10:16.524Z] ✅ MAIL SENT | ed23b040@smail.iitm.ac.in (Rateesh Kumar P)
+[2026-03-25T11:10:20.117Z] ✅ MAIL SENT | ed23b041@smail.iitm.ac.in (Santhosh Kumar R)
+[2026-03-25T11:10:23.459Z] ✅ MAIL SENT | ed23b046@smail.iitm.ac.in (Vishu Kumar)
+[2026-03-25T11:10:27.021Z] ✅ MAIL SENT | ed23b055@smail.iitm.ac.in (Sanjaith Ganeshkumar)
+[2026-03-25T11:10:30.397Z] ✅ MAIL SENT | ed23b061@smail.iitm.ac.in (Ahmad Bilal A)
+[2026-03-25T11:10:33.768Z] ✅ MAIL SENT | ed23b063@smail.iitm.ac.in (Bhuvanesh S)
+[2026-03-25T11:10:37.306Z] ✅ MAIL SENT | ed23b065@smail.iitm.ac.in (Gururaj Dinesh Thorat)
+[2026-03-25T11:10:40.861Z] ✅ MAIL SENT | ed23b068@smail.iitm.ac.in (Manjunatha Sajjanar)
+[2026-03-25T11:10:40.862Z] ✅ Batch 1 complete
+[2026-03-25T11:10:40.863Z] ⏳ Waiting before next batch...
+[2026-03-25T11:10:50.875Z] 📤 Sending batch 2 (1 emails)...
+[2026-03-25T11:10:54.294Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-03-25T11:10:54.294Z] ✅ Batch 2 complete
+[2026-03-25T11:10:54.295Z] ========== RUN COMPLETE ==========
