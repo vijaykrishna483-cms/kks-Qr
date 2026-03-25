@@ -37,8 +37,8 @@ export const scanQrCode = async (req, res) => {
       user: {
         name: record.name,
         email: record.email,
-        kks_id: record.kks_id,   // <- new
-        count: record.count      // <- new
+        food_pref: record.unique_id,
+        count: record.count
       }
     });
   } catch (error) {

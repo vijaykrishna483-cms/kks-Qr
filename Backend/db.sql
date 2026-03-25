@@ -1,0 +1,8 @@
+CREATE TABLE qr_codes (
+    uuid VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    unique_id VARCHAR(255) NOT NULL,
+    count INTEGER NOT NULL,
+    used BOOLEAN DEFAULT FALSE
+);

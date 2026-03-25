@@ -40,8 +40,9 @@ const App = () => {
     }
 
     try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
       const response = await axios.post(
-        "https://kks-qr.onrender.com/api/qr/scan",
+        `${backendUrl}/api/qr/scan`,
         { uuid }
       );
 
@@ -122,7 +123,7 @@ const App = () => {
 
   return (
    <div className="scanner-container">
-  <h1 className="title">KKS ONAM <br/>QR Code Scanner</h1>
+  <h1 className="title">ALAKANANDA BBQ NIGHT<br/>QR Scanner</h1>
 
   <div id={readerId} className="camera-box"></div>
 
@@ -142,8 +143,8 @@ const App = () => {
       <h3>Scanned User Details</h3>
       <p><strong>Name:</strong> {userInfo.name}</p>
       <p><strong>Email:</strong> {userInfo.email}</p>
-      <p><strong>KKS ID:</strong> {userInfo.kks_id}</p>
-      {/* <p><strong>Count:</strong> {userInfo.count}</p> */}
+      <p><strong>Food Preference:</strong> {userInfo.food_pref}</p>
+      <p><strong>Count:</strong> {userInfo.count}</p>
     </div>
   )}
 

@@ -13,4 +13,4 @@ app.use(express.json());
 // QR routes
 app.use('/api/qr', qrRoutes);
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+app.listen(process.env.PORT, () => console.log('Server running on http://localhost:3000'));

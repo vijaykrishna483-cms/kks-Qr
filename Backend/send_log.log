@@ -1,0 +1,42 @@
+[2026-03-25T10:28:23.703Z] ========== NEW RUN STARTED ==========
+[2026-03-25T10:28:23.709Z] 📋 Loaded 4 rows from bbq.csv
+[2026-03-25T10:28:25.233Z] ⚠️  DB SKIP   | vijaykrshns@gmail.com — already exists, skipped insert
+[2026-03-25T10:28:25.448Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID b81e9747-607a-45ab-a3b8-ed1a375f0e05
+[2026-03-25T10:28:25.662Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 08646b50-78da-4fe9-927e-29568681ec53
+[2026-03-25T10:28:25.878Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID 342db892-d903-4ca7-b42b-e9e5a23a8f3f
+[2026-03-25T10:28:25.934Z] 🎨 QR codes generated for all 4 recipients
+[2026-03-25T10:28:25.935Z] 📤 Sending batch 1 (4 emails)...
+[2026-03-25T10:28:29.626Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
+[2026-03-25T10:28:33.108Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
+[2026-03-25T10:28:36.662Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
+[2026-03-25T10:28:40.093Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
+[2026-03-25T10:28:40.093Z] ✅ Batch 1 complete
+[2026-03-25T10:28:40.093Z] ========== RUN COMPLETE ==========
+[2026-03-25T10:31:48.822Z] ========== NEW RUN STARTED ==========
+[2026-03-25T10:31:48.824Z] 📋 Loaded 4 rows from bbq.csv
+[2026-03-25T10:31:50.171Z] ✅ DB INSERT | vijaykrshns@gmail.com — saved with UUID c66d48a6-3303-49b6-9149-cca39b518a3d
+[2026-03-25T10:31:50.381Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID 9d7e5d20-4323-488f-a0e1-781666289f27
+[2026-03-25T10:31:50.591Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID ce0104d0-096e-4a1c-8a7c-d7262d832dd2
+[2026-03-25T10:31:50.804Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID a3dc0528-cbc2-4a5a-af73-4fba014dcb45
+[2026-03-25T10:31:50.819Z] 🎨 QR codes generated for all 4 recipients
+[2026-03-25T10:31:50.819Z] 📤 Sending batch 1 (4 emails)...
+[2026-03-25T10:31:54.207Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
+[2026-03-25T10:31:57.773Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
+[2026-03-25T10:32:01.176Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
+[2026-03-25T10:32:04.557Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
+[2026-03-25T10:32:04.558Z] ✅ Batch 1 complete
+[2026-03-25T10:32:04.558Z] ========== RUN COMPLETE ==========
+[2026-03-25T10:33:44.467Z] ========== NEW RUN STARTED ==========
+[2026-03-25T10:33:44.468Z] 📋 Loaded 4 rows from bbq.csv
+[2026-03-25T10:33:46.098Z] ✅ DB INSERT | vijaykrshns@gmail.com — saved with UUID 70f5d70e-62f1-4b16-9946-56a3651eded6
+[2026-03-25T10:33:46.310Z] ✅ DB INSERT | vijay762005@gmail.com — saved with UUID 9cbc4cb2-4392-432c-b534-c4d02b937a5d
+[2026-03-25T10:33:46.522Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 72da5d9d-00f5-40d5-b3cb-cda1e4eac191
+[2026-03-25T10:33:46.737Z] ✅ DB INSERT | vijay3092005@gmail.com — saved with UUID 1fd0960a-0c2a-4f09-af11-cff8341d64b6
+[2026-03-25T10:33:46.758Z] 🎨 QR codes generated for all 4 recipients
+[2026-03-25T10:33:46.763Z] 📤 Sending batch 1 (4 emails)...
+[2026-03-25T10:33:50.049Z] ✅ MAIL SENT | vijaykrshns@gmail.com (John Doe)
+[2026-03-25T10:33:53.493Z] ✅ MAIL SENT | vijay762005@gmail.com (John Doe)
+[2026-03-25T10:33:56.868Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (John Doe)
+[2026-03-25T10:34:00.216Z] ✅ MAIL SENT | vijay3092005@gmail.com (John Doe)
+[2026-03-25T10:34:00.217Z] ✅ Batch 1 complete
+[2026-03-25T10:34:00.218Z] ========== RUN COMPLETE ==========
