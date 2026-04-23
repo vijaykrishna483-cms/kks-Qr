@@ -110,7 +110,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
           await transporter.sendMail({
             from: process.env.SENDER_EMAIL,
             to: data.email,
-            subject: 'Greeshma Sandhya \\'26 - Entry Pass',
+            subject: 'Greeshma Sandhya 26 - Entry Pass',
             text: `Hello ${data.name}, Greetings from Kerala Kala Samiti! We’re happy to invite you to Greeshma Sandhya ’26 on 24 April 2026, 6:00 PM at SAC. Your food preference is ${data.food_pref}. Please find your QR code attached. Do not share it, it can be used only once. Hope to see you all there! സ്നേഹപൂർവ്വം കേരള കലാസമിതി`,
             html: `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background-color:#f0f0f0;font-family:Arial,Helvetica,sans-serif;">

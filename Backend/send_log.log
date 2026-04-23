@@ -214,3 +214,21 @@
 [2026-04-23T18:50:38.249Z] ✅ MAIL SENT | devops@saarang.org (Vijay Krishna S)
 [2026-04-23T18:50:38.251Z] ✅ Batch 1 complete
 [2026-04-23T18:50:38.251Z] ========== RUN COMPLETE ==========
+[2026-04-23T19:08:55.658Z] ========== NEW RUN STARTED ==========
+[2026-04-23T19:08:55.667Z] 📋 Loaded 1 rows from bbq.csv
+[2026-04-23T19:08:55.746Z] ❌ DB ERROR  | na23b021@smail.iitm.ac.in — password authentication failed for user "potgres"
+[2026-04-23T19:08:55.780Z] 🎨 QR codes generated for all 1 recipients
+[2026-04-23T19:08:55.781Z] 📤 Sending batch 1 (1 emails)...
+[2026-04-23T19:08:56.505Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-04-23T19:08:56.507Z] ✅ Batch 1 complete
+[2026-04-23T19:08:56.508Z] ========== RUN COMPLETE ==========
+[2026-04-23T19:11:16.418Z] ========== NEW RUN STARTED ==========
+[2026-04-23T19:11:16.420Z] 📋 Loaded 2 rows from bbq.csv
+[2026-04-23T19:11:16.475Z] ❌ DB ERROR  | na23b021@smail.iitm.ac.in — password authentication failed for user "potgres"
+[2026-04-23T19:11:16.525Z] ❌ DB ERROR  | devanarayananvs1@gmail.com — password authentication failed for user "potgres"
+[2026-04-23T19:11:16.542Z] 🎨 QR codes generated for all 2 recipients
+[2026-04-23T19:11:16.543Z] 📤 Sending batch 1 (2 emails)...
+[2026-04-23T19:11:17.187Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-04-23T19:11:17.844Z] ✅ MAIL SENT | devanarayananvs1@gmail.com (Devanarayanan)
+[2026-04-23T19:11:17.845Z] ✅ Batch 1 complete
+[2026-04-23T19:11:17.845Z] ========== RUN COMPLETE ==========

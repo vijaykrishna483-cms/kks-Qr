@@ -129,7 +129,7 @@ const App = () => {
 
   return (
    <div className="scanner-container">
-  <h1 className="title">ALAKANANDA BBQ NIGHT<br/>QR Scanner</h1>
+  <h1 className="title">Greeshma Sandhya 26<br/>QR Scanner</h1>
 
   <div id={readerId} className="camera-box"></div>
 
