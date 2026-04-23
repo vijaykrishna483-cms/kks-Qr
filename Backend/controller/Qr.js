@@ -110,8 +110,8 @@ export const uploadAndSendQRCodes = async (req, res) => {
           await transporter.sendMail({
             from: process.env.SENDER_EMAIL,
             to: data.email,
-            subject: 'Alakananda BBQ Night - Entry Pass',
-            text: `Hello ${data.name}, You are invited to Alakananda BBQ Night on 25th March 2026. Serving from 7:30 PM to 9:30 PM at Alakananda Ground. Your food preference: ${data.food_pref}. Please find your QR code attached. Do not share it, it can be used only once. Best wishes, Alakananda Council`,
+            subject: 'Greeshma Sandhya \\'26 - Entry Pass',
+            text: `Hello ${data.name}, Greetings from Kerala Kala Samiti! We’re happy to invite you to Greeshma Sandhya ’26 on 24 April 2026, 6:00 PM at SAC. Your food preference is ${data.food_pref}. Please find your QR code attached. Do not share it, it can be used only once. Hope to see you all there! സ്നേഹപൂർവ്വം കേരള കലാസമിതി`,
             html: `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background-color:#f0f0f0;font-family:Arial,Helvetica,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;padding:30px 0;">
@@ -119,51 +119,24 @@ export const uploadAndSendQRCodes = async (req, res) => {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:4px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
 
   <tr><td style="background:#111111;padding:36px 40px;text-align:center;">
-    <p style="margin:0;color:#999999;font-size:11px;letter-spacing:3px;text-transform:uppercase;">Alakananda Hostel Council</p>
-    <h1 style="margin:10px 0 0 0;color:#ffffff;font-size:26px;font-weight:700;letter-spacing:1px;">BBQ Night 2026</h1>
-    <p style="margin:8px 0 0 0;color:#cccccc;font-size:13px;">Wednesday, 25th March &nbsp;|&nbsp; Alakananda Ground</p>
+    <p style="margin:0;color:#999999;font-size:11px;letter-spacing:3px;text-transform:uppercase;">Kerala Kala Samiti</p>
+    <h1 style="margin:10px 0 0 0;color:#ffffff;font-size:26px;font-weight:700;letter-spacing:1px;">Greeshma Sandhya '26</h1>
+    <p style="margin:8px 0 0 0;color:#cccccc;font-size:13px;">Friday, 24 April 2026 &nbsp;|&nbsp; SAC</p>
   </td></tr>
 
   <tr><td style="padding:32px 40px 0 40px;">
     <p style="margin:0;font-size:16px;color:#111111;">Hello <strong>${data.name}</strong>,</p>
-    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.8;">Hope your quiz preparations are going well! We are excited to invite you to <strong>Alakananda BBQ Night</strong> — an evening of great food and good vibes.</p>
+    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.8;">Greetings from <strong>Kerala Kala Samiti!</strong><br><br>We’re happy to invite all students, faculty, non-faculty members, and your families at IIT Madras to <strong>Greeshma Sandhya ’26</strong>. It’s going to be a memorable evening with cultural programs and tasty food — a great chance to relax and enjoy together.</p>
   </td></tr>
 
   <tr><td style="padding:24px 40px 0 40px;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border-left:4px solid #111111;">
     <tr><td style="padding:18px 22px;">
       <p style="margin:0 0 4px 0;font-size:10px;letter-spacing:2px;color:#999999;text-transform:uppercase;">Event Details</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Date:</strong> Wednesday, 25th March 2026 (Today)</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Time:</strong> 7:30 PM — 9:30 PM</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Venue:</strong> Alakananda Ground</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Date:</strong> 24 April 2026</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Time:</strong> 6:00 PM</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Venue:</strong> SAC</p>
     </td></tr>
-    </table>
-  </td></tr>
-
-  <tr><td style="padding:24px 40px 0 40px;">
-    <p style="margin:0 0 14px 0;font-size:10px;letter-spacing:2px;color:#999999;text-transform:uppercase;">Menu</p>
-    <table width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td width="48%" valign="top">
-        <div style="background:#111111;color:#ffffff;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Non-Veg</div>
-        <div style="border:1px solid #e5e5e5;border-top:none;padding:14px 16px;">
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Chicken Rice</p>
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Barbecue Chicken</p>
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Chicken Chilli</p>
-          <p style="margin:0;font-size:13px;color:#333333;">Coke</p>
-        </div>
-      </td>
-      <td width="4%"></td>
-      <td width="48%" valign="top">
-        <div style="background:#444444;color:#ffffff;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Veg</div>
-        <div style="border:1px solid #e5e5e5;border-top:none;padding:14px 16px;">
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Gobi Rice</p>
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Paneer Tikka</p>
-          <p style="margin:0 0 7px 0;font-size:13px;color:#333333;">Chilli Paneer</p>
-          <p style="margin:0;font-size:13px;color:#333333;">Coke</p>
-        </div>
-      </td>
-    </tr>
     </table>
   </td></tr>
 
@@ -183,14 +156,14 @@ export const uploadAndSendQRCodes = async (req, res) => {
   <tr><td style="padding:18px 40px 0 40px;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff5f5;border-left:4px solid #cc0000;">
     <tr><td style="padding:14px 18px;">
-      <p style="margin:0;font-size:13px;color:#880000;line-height:1.7;"><strong>Important:</strong> Please do not share your QR code with anyone. It can be used only once. If your QR has already been scanned by someone else, you will not be allowed to dine.</p>
+      <p style="margin:0;font-size:13px;color:#880000;line-height:1.7;"><strong>Important:</strong> Please do not share your QR code with anyone. It can be used only once. If your QR has already been scanned by someone else, you will not be allowed to enter.</p>
     </td></tr>
     </table>
   </td></tr>
 
   <tr><td style="padding:28px 40px 32px 40px;">
-    <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;">Come along with your friends and make it a fun and memorable evening. Looking forward to seeing you all there!</p>
-    <p style="margin:20px 0 0 0;font-size:14px;color:#111111;"><strong>Best wishes,</strong><br>Alakananda Council</p>
+    <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;">Hope to see you all there!</p>
+    <p style="margin:20px 0 0 0;font-size:14px;color:#111111;"><strong>സ്നേഹപൂർവ്വം,</strong><br>കേരള കലാസമിതി</p>
   </td></tr>
 
   <tr><td style="background:#f0f0f0;padding:16px 40px;text-align:center;border-top:1px solid #e0e0e0;">
