@@ -109,3 +109,108 @@
 [2026-03-25T11:10:54.294Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
 [2026-03-25T11:10:54.294Z] ✅ Batch 2 complete
 [2026-03-25T11:10:54.295Z] ========== RUN COMPLETE ==========
+[2026-03-25T11:51:55.841Z] ========== NEW RUN STARTED ==========
+[2026-03-25T11:51:55.868Z] 📋 Loaded 1 rows from bbq.csv
+[2026-03-25T11:51:57.623Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 0c6e060a-664a-4f39-866c-07c117bdf617
+[2026-03-25T11:51:57.665Z] 🎨 QR codes generated for all 1 recipients
+[2026-03-25T11:51:57.667Z] 📤 Sending batch 1 (1 emails)...
+[2026-03-25T11:52:01.145Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-03-25T11:52:01.146Z] ✅ Batch 1 complete
+[2026-03-25T11:52:01.147Z] ========== RUN COMPLETE ==========
+[2026-03-25T11:59:36.347Z] ========== NEW RUN STARTED ==========
+[2026-03-25T11:59:36.352Z] 📋 Loaded 25 rows from bbq.csv
+[2026-03-25T11:59:37.778Z] ✅ DB INSERT | am24m009@smail.iitm.ac.in — saved with UUID f758ca0f-0b22-4eae-ae85-f02cb60f26b4
+[2026-03-25T11:59:37.997Z] ✅ DB INSERT | am24m011@smail.iitm.ac.in — saved with UUID 8bde74ef-4198-4c37-88de-0b8f7c8f324a
+[2026-03-25T11:59:38.213Z] ✅ DB INSERT | am24m015@smail.iitm.ac.in — saved with UUID 3ef1ccb9-611a-4fb5-b856-0d01d3ddfef3
+[2026-03-25T11:59:38.426Z] ✅ DB INSERT | am24m018@smail.iitm.ac.in — saved with UUID 91f19579-7ca1-4207-b716-24d9a36cb63e
+[2026-03-25T11:59:38.643Z] ✅ DB INSERT | am24m020@smail.iitm.ac.in — saved with UUID 4f7880d1-919a-4ce0-bac6-68deafece93e
+[2026-03-25T11:59:38.856Z] ✅ DB INSERT | am24m024@smail.iitm.ac.in — saved with UUID 9f13a7ad-09e8-43b5-99ad-178edcd03f63
+[2026-03-25T11:59:39.069Z] ✅ DB INSERT | am24m030@smail.iitm.ac.in — saved with UUID a5793e4e-00ba-44b1-bdbd-2d085196d0df
+[2026-03-25T11:59:39.290Z] ✅ DB INSERT | be21b006@smail.iitm.ac.in — saved with UUID 40c8b339-ee14-4d61-8a2b-f4660a01c133
+[2026-03-25T11:59:39.504Z] ✅ DB INSERT | be21b011@smail.iitm.ac.in — saved with UUID 2e544e2e-4cbc-42f4-be86-45b4e2ec43d8
+[2026-03-25T11:59:39.723Z] ✅ DB INSERT | be21b013@smail.iitm.ac.in — saved with UUID 292a0f1a-8935-4938-9178-d8f8639ba170
+[2026-03-25T11:59:39.965Z] ✅ DB INSERT | be21b015@smail.iitm.ac.in — saved with UUID b5948b54-2b96-4894-93d6-3fabcdbf499b
+[2026-03-25T11:59:40.178Z] ✅ DB INSERT | be21b017@smail.iitm.ac.in — saved with UUID 31342b12-4d73-4d7b-8763-8523f48485d8
+[2026-03-25T11:59:40.394Z] ✅ DB INSERT | be21b040@smail.iitm.ac.in — saved with UUID fbddba09-78bb-424e-a3db-db4938e90930
+[2026-03-25T11:59:40.641Z] ✅ DB INSERT | bs21b001@smail.iitm.ac.in — saved with UUID 178caef3-46ad-4781-9b92-1756cb9b0ceb
+[2026-03-25T11:59:40.865Z] ✅ DB INSERT | bs21b008@smail.iitm.ac.in — saved with UUID f8d15aaf-d69b-4f7a-b05c-27747a426efd
+[2026-03-25T11:59:41.128Z] ✅ DB INSERT | bs21b012@smail.iitm.ac.in — saved with UUID cdc64e5c-1eda-43d8-bec2-60caaf81ff1a
+[2026-03-25T11:59:41.351Z] ✅ DB INSERT | bs21b013@smail.iitm.ac.in — saved with UUID 19970ba6-3555-4de6-84c5-52ed1631d46c
+[2026-03-25T11:59:41.564Z] ✅ DB INSERT | bs21b014@smail.iitm.ac.in — saved with UUID 67e7ab76-e716-42dc-92c1-0781670e38ce
+[2026-03-25T11:59:41.778Z] ✅ DB INSERT | bs21b015@smail.iitm.ac.in — saved with UUID 6ada1543-5818-4b30-9034-9575229e192c
+[2026-03-25T11:59:41.992Z] ✅ DB INSERT | bs21b029@smail.iitm.ac.in — saved with UUID 24d44ad7-a7c1-4ca7-9495-4a8047d55a14
+[2026-03-25T11:59:42.206Z] ✅ DB INSERT | bs21b036@smail.iitm.ac.in — saved with UUID c5d0dc1b-9fe0-4507-ad20-5fa6f6a6f5cb
+[2026-03-25T11:59:42.420Z] ✅ DB INSERT | bs21b037@smail.iitm.ac.in — saved with UUID fe99c32f-f0a8-4d9f-b5cb-fd274325e20e
+[2026-03-25T11:59:42.633Z] ✅ DB INSERT | ed23b001@smail.iitm.ac.in — saved with UUID 418534c1-561e-40eb-8ad9-632da831339e
+[2026-03-25T11:59:42.849Z] ✅ DB INSERT | ed23b004@smail.iitm.ac.in — saved with UUID ec1c6dd9-9b78-45db-b1ea-5c563ad6a38c
+[2026-03-25T11:59:43.463Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID c5f0a23c-bde9-40f8-bb84-3778ee8679cb
+[2026-03-25T11:59:43.766Z] 🎨 QR codes generated for all 25 recipients
+[2026-03-25T11:59:43.767Z] 📤 Sending batch 1 (25 emails)...
+[2026-03-25T11:59:47.343Z] ✅ MAIL SENT | am24m009@smail.iitm.ac.in (Kailash L)
+[2026-03-25T11:59:50.870Z] ✅ MAIL SENT | am24m011@smail.iitm.ac.in (Muhammed Hamdan S M)
+[2026-03-25T11:59:54.248Z] ✅ MAIL SENT | am24m015@smail.iitm.ac.in (Surya Pratap Singh)
+[2026-03-25T11:59:57.837Z] ✅ MAIL SENT | am24m018@smail.iitm.ac.in (Vikas Chandra Dewangan)
+[2026-03-25T12:00:01.136Z] ✅ MAIL SENT | am24m020@smail.iitm.ac.in (Yuvaraj N)
+[2026-03-25T12:00:04.798Z] ✅ MAIL SENT | am24m024@smail.iitm.ac.in (Deepak Kothakota)
+[2026-03-25T12:00:08.638Z] ✅ MAIL SENT | am24m030@smail.iitm.ac.in (Shanmugapriyan N)
+[2026-03-25T12:00:12.015Z] ✅ MAIL SENT | be21b006@smail.iitm.ac.in (Anurag N)
+[2026-03-25T12:00:15.465Z] ✅ MAIL SENT | be21b011@smail.iitm.ac.in (Chetan Reddy G R)
+[2026-03-25T12:00:18.778Z] ✅ MAIL SENT | be21b013@smail.iitm.ac.in (Choppala Rahul)
+[2026-03-25T12:00:22.702Z] ✅ MAIL SENT | be21b015@smail.iitm.ac.in (Dikshant Pravin Khare)
+[2026-03-25T12:00:26.192Z] ✅ MAIL SENT | be21b017@smail.iitm.ac.in (Harish Balaji G K)
+[2026-03-25T12:00:29.682Z] ✅ MAIL SENT | be21b040@smail.iitm.ac.in (Sumedh Sanjay Kangne)
+[2026-03-25T12:00:34.138Z] ✅ MAIL SENT | bs21b001@smail.iitm.ac.in (Aadit Mahajan)
+[2026-03-25T12:00:42.079Z] ✅ MAIL SENT | bs21b008@smail.iitm.ac.in (Astitwa Srijan)
+[2026-03-25T12:00:45.817Z] ✅ MAIL SENT | bs21b012@smail.iitm.ac.in (Deepak Kumar Raushan)
+[2026-03-25T12:00:49.976Z] ✅ MAIL SENT | bs21b013@smail.iitm.ac.in (Deepak Kumar S)
+[2026-03-25T12:00:55.443Z] ✅ MAIL SENT | bs21b014@smail.iitm.ac.in (Elamurugan R)
+[2026-03-25T12:00:58.830Z] ✅ MAIL SENT | bs21b015@smail.iitm.ac.in (Eslavath Pavan Kumar)
+[2026-03-25T12:01:03.821Z] ✅ MAIL SENT | bs21b029@smail.iitm.ac.in (Salihundam Srinivas Rahul)
+[2026-03-25T12:01:07.316Z] ✅ MAIL SENT | bs21b036@smail.iitm.ac.in (Suraj Kiran S)
+[2026-03-25T12:01:11.229Z] ✅ MAIL SENT | bs21b037@smail.iitm.ac.in (Sutej Kumar Jal)
+[2026-03-25T12:01:13.397Z] ❌ MAIL FAIL | ed23b001@smail.iitm.ac.in (Adesh Lokare) — Data command failed: 421-4.3.0 Temporary System Problem. Try again later. For more information, go to
+421 4.3.0  https://support.google.com/a/answer/3221692 d2e1a72fcca58-82b0410b1bdsm19875793b3a.57 - gsmtp
+[2026-03-25T12:01:17.242Z] ✅ MAIL SENT | ed23b004@smail.iitm.ac.in (Aincha Srivathsav)
+[2026-03-25T12:01:21.160Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-03-25T12:01:21.161Z] ✅ Batch 1 complete
+[2026-03-25T12:01:21.162Z] ========== RUN COMPLETE ==========
+[2026-03-25T12:13:04.718Z] ========== NEW RUN STARTED ==========
+[2026-03-25T12:13:04.755Z] 📋 Loaded 1 rows from bbq.csv
+[2026-03-25T12:13:06.340Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID e184b726-6749-4690-b920-9eed491b0891
+[2026-03-25T12:13:06.406Z] 🎨 QR codes generated for all 1 recipients
+[2026-03-25T12:13:06.408Z] 📤 Sending batch 1 (1 emails)...
+[2026-03-25T12:13:06.628Z] ❌ MAIL FAIL | na23b021@smail.iitm.ac.in (Vijay Krishna S) — Missing credentials for "PLAIN"
+[2026-03-25T12:13:06.630Z] ✅ Batch 1 complete
+[2026-03-25T12:13:06.630Z] ========== RUN COMPLETE ==========
+[2026-03-25T12:13:55.841Z] ========== NEW RUN STARTED ==========
+[2026-03-25T12:13:55.852Z] 📋 Loaded 1 rows from bbq.csv
+[2026-03-25T12:13:57.725Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 63567f9d-2f84-4668-b9f2-a6420dd23833
+[2026-03-25T12:13:57.761Z] 🎨 QR codes generated for all 1 recipients
+[2026-03-25T12:13:57.762Z] 📤 Sending batch 1 (1 emails)...
+[2026-03-25T12:13:58.453Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-03-25T12:13:58.454Z] ✅ Batch 1 complete
+[2026-03-25T12:13:58.455Z] ========== RUN COMPLETE ==========
+[2026-03-25T12:16:37.678Z] ========== NEW RUN STARTED ==========
+[2026-03-25T12:16:37.697Z] 📋 Loaded 1 rows from bbq.csv
+[2026-03-25T12:16:39.280Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in — saved with UUID 5040ace0-95e3-4825-9630-c21a0e4a49c5
+[2026-03-25T12:16:39.352Z] 🎨 QR codes generated for all 1 recipients
+[2026-03-25T12:16:39.356Z] 📤 Sending batch 1 (1 emails)...
+[2026-03-25T12:16:40.040Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-03-25T12:16:40.041Z] ✅ Batch 1 complete
+[2026-03-25T12:16:40.042Z] ========== RUN COMPLETE ==========
+[2026-04-23T18:46:02.782Z] ========== NEW RUN STARTED ==========
+[2026-04-23T18:46:02.799Z] 📋 Loaded 1 rows from bbq.csv
+[2026-04-23T18:46:04.323Z] ⚠️  DB SKIP   | na23b021@smail.iitm.ac.in — already exists, skipped insert
+[2026-04-23T18:46:04.389Z] 🎨 QR codes generated for all 1 recipients
+[2026-04-23T18:46:04.392Z] 📤 Sending batch 1 (1 emails)...
+[2026-04-23T18:46:05.235Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay Krishna S)
+[2026-04-23T18:46:05.237Z] ✅ Batch 1 complete
+[2026-04-23T18:46:05.238Z] ========== RUN COMPLETE ==========
+[2026-04-23T18:50:36.775Z] ========== NEW RUN STARTED ==========
+[2026-04-23T18:50:36.778Z] 📋 Loaded 1 rows from bbq.csv
+[2026-04-23T18:50:37.578Z] ❌ DB ERROR  | devops@saarang.org — Connection terminated unexpectedly
+[2026-04-23T18:50:37.593Z] 🎨 QR codes generated for all 1 recipients
+[2026-04-23T18:50:37.594Z] 📤 Sending batch 1 (1 emails)...
+[2026-04-23T18:50:38.249Z] ✅ MAIL SENT | devops@saarang.org (Vijay Krishna S)
+[2026-04-23T18:50:38.251Z] ✅ Batch 1 complete
+[2026-04-23T18:50:38.251Z] ========== RUN COMPLETE ==========

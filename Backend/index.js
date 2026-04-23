@@ -12,8 +12,26 @@ const PORT = process.env.PORT || 4000;
 // enable CORS for all origins
 app.use(cors());
 
+// Diagnostic logging
+console.log('--- SERVER STARTING ---');
+console.log('Environment:', process.env.NODE_ENV);
+console.log('PORT:', PORT);
+console.log('Working Directory:', process.cwd());
+console.log('--- END DIAGNOSTICS ---');
+
 // parse JSON bodies
 app.use(express.json());
+
+// Log incoming requests
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+// Simple test route
+app.get('/test', (req, res) => {
+  res.send('Server is reachable!');
+});
 
 // Healthcheck route
 app.get('/', async (req, res) => {

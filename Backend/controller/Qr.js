@@ -45,12 +45,14 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
     log(`📋 Loaded ${sheetData.length} rows from bbq.csv`);
 
-    // 2️⃣ Setup Gmail SMTP
+    // 2️⃣ Setup SMTP (Brevo/Sendinblue)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp-relay.brevo.com',
+      port: 587,
+      secure: false, // true for 465, false for 587
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
@@ -106,7 +108,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
       for (const data of batch) {
         try {
           await transporter.sendMail({
-            from: process.env.GMAIL_USER,
+            from: process.env.SENDER_EMAIL,
             to: data.email,
             subject: 'Alakananda BBQ Night - Entry Pass',
             text: `Hello ${data.name}, You are invited to Alakananda BBQ Night on 25th March 2026. Serving from 7:30 PM to 9:30 PM at Alakananda Ground. Your food preference: ${data.food_pref}. Please find your QR code attached. Do not share it, it can be used only once. Best wishes, Alakananda Council`,
