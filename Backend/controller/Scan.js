@@ -31,15 +31,14 @@ export const scanQrCode = async (req, res) => {
       [uuid]
     );
 
-    // ✅ Send back all required details
+    // ✅ Return verified details including food_type (Non-Veg / Veg)
     res.json({
       message: 'QR verified successfully',
       user: {
-        name: record.name,
-        email: record.email,
-        food_pref: record.unique_id,
-        count: record.count
-      }
+        name:      record.name,
+        email:     record.email,
+        food_type: record.food_type,   // 'Non-Veg' or 'Veg'
+      },
     });
   } catch (error) {
     console.error(error);

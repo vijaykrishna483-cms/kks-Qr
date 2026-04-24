@@ -1,3 +1,2 @@
-id,name,email,count,foodpref
-1,Vijay Krishna S,na23b021@smail.iitm.ac.in,1,Non-Veg
-2,Devanarayanan,devanarayananvs1@gmail.com,1,Veg
+email,name,No. of Non veg coupons,No. of veg coupons,Total No.of coupons
+vijay762005@gmail.com,Edamana Prasad,3,1,4
