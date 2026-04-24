@@ -141,7 +141,6 @@ export const uploadAndSendQRCodes = async (req, res) => {
           const borderColor  = isNonVeg ? '#CC0000' : '#2E7D32';
           const bgColor      = isNonVeg ? '#FFF5F5' : '#F1F8E9';
           const labelBg      = isNonVeg ? '#CC0000' : '#2E7D32';
-          const emoji        = isNonVeg ? '🍗' : '🥗';
           const label        = `${qr.food_type} Coupon ${qr.index}`;
 
           qrRows += `
@@ -155,7 +154,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
                 <tr>
                   <td style="background:${labelBg}; padding:10px 16px; text-align:center;">
                     <p style="margin:0; font-size:14px; font-weight:700; color:#ffffff; letter-spacing:0.5px;">
-                      ${emoji}&nbsp;&nbsp;${label}
+                      ${label}
                     </p>
                   </td>
                 </tr>
@@ -171,8 +170,8 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
       // Summary text
       const parts = [];
-      if (nonVegCount > 0) parts.push(`<strong style="color:#CC0000;">${nonVegCount} Non-Veg 🍗</strong>`);
-      if (vegCount > 0)    parts.push(`<strong style="color:#2E7D32;">${vegCount} Veg 🥗</strong>`);
+      if (nonVegCount > 0) parts.push(`<strong style="color:#CC0000;">${nonVegCount} Non-Veg</strong>`);
+      if (vegCount > 0)    parts.push(`<strong style="color:#2E7D32;">${vegCount} Veg</strong>`);
       const summaryHtml = parts.join(' &nbsp;+&nbsp; ');
 
       return `<!DOCTYPE html>

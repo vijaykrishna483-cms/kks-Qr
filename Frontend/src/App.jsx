@@ -129,7 +129,10 @@ const App = () => {
 
   return (
    <div className="scanner-container">
-  <h1 className="title">Greeshma Sandhya 26<br/>QR Scanner</h1>
+  <h1 className="title">
+    <span className="title-event">Greeshma Sandhya '26</span>
+    <span className="title-sub">QR Scanner</span>
+  </h1>
 
   <div id={readerId} className="camera-box"></div>
 
@@ -149,8 +152,7 @@ const App = () => {
       <h3>Scanned User Details</h3>
       <p><strong>Name:</strong> {userInfo.name}</p>
       <p><strong>Email:</strong> {userInfo.email}</p>
-      <p><strong>Food Preference:</strong> {userInfo.food_pref}</p>
-      <p><strong>Count:</strong> {userInfo.count}</p>
+      <p><strong>Food Type:</strong> {userInfo.food_type}</p>
     </div>
   )}
 
