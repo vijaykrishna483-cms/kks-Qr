@@ -34,7 +34,7 @@ export const uploadAndSendQRCodes = async (req, res) => {
     log('========== NEW RUN STARTED ==========');
 
     // 1️⃣ Read CSV — new structure:
-    //    email, name, "No. of Non veg coupons", "No. of veg coupons", "Total No.of coupons"
+    //    email, Name, Roll No, Food Preference
     const sheetData = await new Promise((resolve, reject) => {
       const results = [];
       fs.createReadStream(csvPath)
@@ -57,70 +57,61 @@ export const uploadAndSendQRCodes = async (req, res) => {
       },
     });
 
-    // 3️⃣ Build per-person QR records and insert into DB
+    // 3️⃣ Build per-person QR record and insert into DB — 1 QR per person
     const allPersonData = [];
 
     for (const row of sheetData) {
-      const email = (row['email'] || '').trim();
-      const name  = (row['name']  || '').trim();
-      const nonVegCount = parseInt(row['No. of Non veg coupons']) || 0;
-      const vegCount    = parseInt(row['No. of veg coupons'])     || 0;
-      const totalCount  = parseInt(row['Total No.of coupons'])    || (nonVegCount + vegCount);
+      const email       = (row['email']           || '').trim();
+      const name        = (row['Name']            || '').trim();
+      const rollNo      = (row['Roll No']         || '').trim();
+      const foodPref    = (row['Food Preference'] || '').trim(); // 'Veg' or 'Non Veg'
 
-      if (!email || !name) {
-        log(`⚠️  SKIP row — missing email or name (${JSON.stringify(row)})`);
+      if (!email || !name || !rollNo || !foodPref) {
+        log(`⚠️  SKIP row — missing required field (${JSON.stringify(row)})`);
         continue;
       }
 
-      // Build individual QR records: non-veg first, then veg
-      const qrs = [];
+      // Normalise food preference to consistent label
+      const food_type = foodPref.toLowerCase().includes('non') ? 'Non-Veg' : 'Veg';
 
-      for (let i = 0; i < nonVegCount; i++) {
-        qrs.push({ uuid: uuidv4(), food_type: 'Non-Veg', index: i + 1 });
-      }
-      for (let i = 0; i < vegCount; i++) {
-        qrs.push({ uuid: uuidv4(), food_type: 'Veg', index: i + 1 });
-      }
+      const uuid = uuidv4();
 
-      // Insert each QR as its own row in DB
-      for (const qr of qrs) {
-        try {
-          const result = await pool.query(
-            `INSERT INTO qr_codes (name, email, uuid, food_type, used)
-             VALUES ($1, $2, $3, $4, false)
-             ON CONFLICT (uuid) DO NOTHING
-             RETURNING uuid`,
-            [name, email, qr.uuid, qr.food_type]
-          );
+      // Insert single QR row into DB
+      try {
+        const result = await pool.query(
+          `INSERT INTO qr_codes (name, email, roll_no, uuid, food_type, used)
+           VALUES ($1, $2, $3, $4, $5, false)
+           ON CONFLICT (uuid) DO NOTHING
+           RETURNING uuid`,
+          [name, email, rollNo, uuid, food_type]
+        );
 
-          if (result.rowCount === 0) {
-            log(`⚠️  DB SKIP   | ${email} — UUID ${qr.uuid} already exists`);
-          } else {
-            log(`✅ DB INSERT | ${email} — ${qr.food_type} #${qr.index} — UUID ${qr.uuid}`);
-          }
-        } catch (dbErr) {
-          log(`❌ DB ERROR  | ${email} — ${dbErr.message}`);
+        if (result.rowCount === 0) {
+          log(`⚠️  DB SKIP   | ${email} — UUID ${uuid} already exists`);
+        } else {
+          log(`✅ DB INSERT | ${email} (${rollNo}) — ${food_type} — UUID ${uuid}`);
         }
+      } catch (dbErr) {
+        log(`❌ DB ERROR  | ${email} — ${dbErr.message}`);
+        continue;
       }
 
-      allPersonData.push({ email, name, nonVegCount, vegCount, totalCount, qrs });
+      allPersonData.push({ email, name, rollNo, food_type, uuid });
     }
 
     // 4️⃣ Generate QR images in parallel
     const limit = pLimit(10);
 
     await Promise.all(
-      allPersonData.flatMap((person) =>
-        person.qrs.map((qr) =>
-          limit(async () => {
-            const qrBuffer = await QRCode.toBuffer(`UUID:${qr.uuid}`, {
-              type: 'png',
-              width: 300,
-              margin: 2,
-            });
-            qr.qrBuffer = qrBuffer;
-          })
-        )
+      allPersonData.map((person) =>
+        limit(async () => {
+          const qrBuffer = await QRCode.toBuffer(`UUID:${person.uuid}`, {
+            type: 'png',
+            width: 300,
+            margin: 2,
+          });
+          person.qrBuffer = qrBuffer;
+        })
       )
     );
 
@@ -130,56 +121,85 @@ export const uploadAndSendQRCodes = async (req, res) => {
     const batchSize = 50;
     const delayBetweenBatches = 10000;
 
-    const buildEmailHTML = ({ name, nonVegCount, vegCount, totalCount, qrs }) => {
-      // Build QR code grid (2 per row)
-      let qrRows = '';
-      for (let i = 0; i < qrs.length; i += 2) {
-        qrRows += `<tr>`;
-        for (let j = i; j < Math.min(i + 2, qrs.length); j++) {
-          const qr = qrs[j];
-          const isNonVeg     = qr.food_type === 'Non-Veg';
-          const borderColor  = isNonVeg ? '#CC0000' : '#2E7D32';
-          const bgColor      = isNonVeg ? '#FFF5F5' : '#F1F8E9';
-          const labelBg      = isNonVeg ? '#CC0000' : '#2E7D32';
-          const label        = `${qr.food_type} Coupon ${qr.index}`;
+    const buildEmailHTML = ({ name, rollNo, food_type }) => {
+      const isNonVeg    = food_type === 'Non-Veg';
+      const borderColor = isNonVeg ? '#8B0000' : '#2E7D32';
+      const bgColor     = isNonVeg ? '#FFF5F5' : '#F1F8E9';
+      const labelBg     = isNonVeg ? '#8B0000' : '#2E7D32';
+      const label       = `${food_type} Coupon`;
 
-          qrRows += `
-            <td style="padding:10px; text-align:center; vertical-align:top; width:50%;">
-              <table cellpadding="0" cellspacing="0" style="border:2px solid ${borderColor}; border-radius:10px; overflow:hidden; margin:0 auto;">
-                <tr>
-                  <td style="background:${bgColor}; padding:12px; text-align:center;">
-                    <img src="cid:qr-${qr.uuid}" width="200" height="200" style="display:block;" alt="${label}" />
-                  </td>
-                </tr>
-                <tr>
-                  <td style="background:${labelBg}; padding:10px 16px; text-align:center;">
-                    <p style="margin:0; font-size:14px; font-weight:700; color:#ffffff; letter-spacing:0.5px;">
-                      ${label}
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>`;
-        }
-        // If only 1 item in a row, fill the second cell
-        if (qrs.length % 2 !== 0 && i === qrs.length - 1) {
-          qrRows += `<td style="width:50%;"></td>`;
-        }
-        qrRows += `</tr>`;
-      }
+      const vegMenu = `
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Starters</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Cheese &amp; Corn Nuggets (2 Pc)</li>
+            <li>Spring Roll (2 Pc)</li>
+            <li>Paneer Tikka (2 Pc)</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Main Course</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Mushroom Biryani</li>
+            <li>Phulka (2 Pc)</li>
+            <li>Paneer Gravy</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Desserts</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Bread Halwa</li>
+            <li>Gulab Jamun (1 Pc)</li>
+            <li>Ice Cream</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Drinks</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Watermelon Juice (150 mL)</li>
+          </ul>
+        </td></tr>`;
 
-      // Summary text
-      const parts = [];
-      if (nonVegCount > 0) parts.push(`<strong style="color:#CC0000;">${nonVegCount} Non-Veg</strong>`);
-      if (vegCount > 0)    parts.push(`<strong style="color:#2E7D32;">${vegCount} Veg</strong>`);
-      const summaryHtml = parts.join(' &nbsp;+&nbsp; ');
+      const nonVegMenu = `
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Starters</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Chicken Nuggets (2 Pc)</li>
+            <li>Spring Roll (2 Pc)</li>
+            <li>Hariyali Chicken (2 Pc)</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Main Course</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Chicken Dum Biryani</li>
+            <li>Phulka (2 Pc)</li>
+            <li>Chicken Chettinad Gravy</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0 0 14px 0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Desserts</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Bread Halwa</li>
+            <li>Gulab Jamun (1 Pc)</li>
+            <li>Ice Cream</li>
+          </ul>
+        </td></tr>
+        <tr><td style="padding:0;">
+          <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:2px;color:#999;text-transform:uppercase;">Drinks</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:#444;line-height:2;">
+            <li>Watermelon Juice (150 mL)</li>
+          </ul>
+        </td></tr>`;
+
+      const menuRows = isNonVeg ? nonVegMenu : vegMenu;
 
       return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Greeshma Sandhya '26 – Entry Coupons</title>
+  <title>Alakananda Hostel Nite 2026 – Entry Coupon</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f0f0f0;font-family:Arial,Helvetica,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;padding:30px 0;">
@@ -188,17 +208,17 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
   <!-- Header -->
   <tr><td style="background:#111111;padding:36px 40px;text-align:center;">
-    <p style="margin:0;color:#999999;font-size:11px;letter-spacing:3px;text-transform:uppercase;">Kerala Kala Samiti</p>
-    <h1 style="margin:10px 0 0 0;color:#ffffff;font-size:26px;font-weight:700;letter-spacing:1px;">Greeshma Sandhya '26</h1>
-    <p style="margin:8px 0 0 0;color:#cccccc;font-size:13px;">Friday, 24 April 2026 &nbsp;|&nbsp; SAC</p>
+    <p style="margin:0;color:#999999;font-size:11px;letter-spacing:3px;text-transform:uppercase;">Alakananda Hostel</p>
+    <h1 style="margin:10px 0 0 0;color:#ffffff;font-size:28px;font-weight:700;letter-spacing:1px;">Hostel Nite 2026</h1>
+    <p style="margin:8px 0 0 0;color:#cccccc;font-size:13px;">Friday, 1st May 2026 &nbsp;|&nbsp; Alakananda Ground</p>
   </td></tr>
 
   <!-- Greeting -->
   <tr><td style="padding:32px 40px 0 40px;">
     <p style="margin:0;font-size:16px;color:#111111;">Hello <strong>${name}</strong>,</p>
-    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.8;">
-      Greetings from <strong>Kerala Kala Samiti!</strong><br><br>
-      We're happy to invite you to <strong>Greeshma Sandhya '26</strong>. It's going to be a memorable evening with cultural programs and tasty food — a great chance to relax and enjoy together.
+    <p style="margin:14px 0 0 0;font-size:14px;color:#444444;line-height:1.9;">
+      Hope you're doing well!<br><br>
+      We're excited to invite you to <strong>Alakananda Hostel Nite 2026</strong> — an evening filled with great food, fun, and unforgettable memories!
     </p>
   </td></tr>
 
@@ -206,10 +226,10 @@ export const uploadAndSendQRCodes = async (req, res) => {
   <tr><td style="padding:24px 40px 0 40px;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border-left:4px solid #111111;">
     <tr><td style="padding:18px 22px;">
-      <p style="margin:0 0 4px 0;font-size:10px;letter-spacing:2px;color:#999999;text-transform:uppercase;">Event Details</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Date:</strong> 24 April 2026</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Time:</strong> 6:00 PM</p>
-      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Venue:</strong> SAC</p>
+      <p style="margin:0 0 8px 0;font-size:10px;letter-spacing:2px;color:#999999;text-transform:uppercase;">Event Details</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Date:</strong> Friday, 1st May 2026</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Time:</strong> 7:30 PM onwards</p>
+      <p style="margin:6px 0;font-size:14px;color:#222222;"><strong>Venue:</strong> Alakananda Ground</p>
     </td></tr>
     </table>
   </td></tr>
@@ -218,26 +238,51 @@ export const uploadAndSendQRCodes = async (req, res) => {
   <tr><td style="padding:24px 40px 0 40px;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#111111;border-radius:4px;">
     <tr><td style="padding:18px 24px;">
-      <p style="margin:0;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888888;">Your Food Coupons</p>
+      <p style="margin:0;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888888;">Your Food Coupon</p>
       <p style="margin:8px 0 0 0;font-size:20px;font-weight:700;color:#ffffff;">
-        ${totalCount} Coupon${totalCount > 1 ? 's' : ''} Total &nbsp;—&nbsp; ${summaryHtml.replace(/<[^>]+>/g, (m) => m)}
+        1 Coupon &nbsp;—&nbsp; <span style="color:${isNonVeg ? '#ff9999' : '#99dd99'};">${food_type}</span>
       </p>
+      <p style="margin:6px 0 0 0;font-size:13px;color:#aaaaaa;">Roll No: ${rollNo}</p>
     </td></tr>
     </table>
   </td></tr>
 
-  <!-- Instructions -->
-  <tr><td style="padding:20px 40px 0 40px;">
-    <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;">
-      Your QR codes are below — each one is for <strong>one meal</strong>.
-      Show the matching QR (Non-Veg or Veg) at food collection. Each QR can only be scanned once.
-    </p>
+  <!-- Menu -->
+  <tr><td style="padding:24px 40px 0 40px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border-left:4px solid ${borderColor};border-radius:0 4px 4px 0;">
+    <tr><td style="padding:18px 22px;">
+      <p style="margin:0 0 14px 0;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase;">Your Menu (${food_type})</p>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${menuRows}
+      </table>
+    </td></tr>
+    </table>
   </td></tr>
 
-  <!-- QR Code Grid -->
-  <tr><td style="padding:20px 24px 0 24px;">
+  <!-- QR Code -->
+  <tr><td style="padding:24px 24px 0 24px;">
+    <p style="margin:0 0 12px 16px;font-size:14px;color:#444444;line-height:1.8;">
+      Show the QR below at food collection. It is for <strong>one meal</strong> and can only be scanned once.
+    </p>
     <table width="100%" cellpadding="0" cellspacing="0">
-      ${qrRows}
+      <tr>
+        <td style="padding:10px; text-align:center; vertical-align:top;">
+          <table cellpadding="0" cellspacing="0" style="border:2px solid ${borderColor}; border-radius:10px; overflow:hidden; margin:0 auto;">
+            <tr>
+              <td style="background:${bgColor}; padding:12px; text-align:center;">
+                <img src="cid:qr-main" width="200" height="200" style="display:block;" alt="${label}" />
+              </td>
+            </tr>
+            <tr>
+              <td style="background:${labelBg}; padding:10px 16px; text-align:center;">
+                <p style="margin:0; font-size:14px; font-weight:700; color:#ffffff; letter-spacing:0.5px;">
+                  ${label}
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
     </table>
   </td></tr>
 
@@ -246,8 +291,8 @@ export const uploadAndSendQRCodes = async (req, res) => {
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff5f5;border-left:4px solid #cc0000;">
     <tr><td style="padding:14px 18px;">
       <p style="margin:0;font-size:13px;color:#880000;line-height:1.7;">
-        <strong>Important:</strong> Each QR code can be used only once. Do not share your QR codes.
-        If a QR has already been scanned by someone else, it will not be accepted.
+        <strong>Important:</strong> This QR code can be used only once. Do not share it.
+        If it has already been scanned, it will not be accepted at entry.
       </p>
     </td></tr>
     </table>
@@ -255,8 +300,11 @@ export const uploadAndSendQRCodes = async (req, res) => {
 
   <!-- Sign-off -->
   <tr><td style="padding:28px 40px 32px 40px;">
-    <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;">Hope to see you all there!</p>
-    <p style="margin:20px 0 0 0;font-size:14px;color:#111111;"><strong>സ്നേഹപൂർവ്വം,</strong><br>കേരള കലാസമിതി</p>
+    <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;">
+      Get ready for a night full of good vibes, delicious food, and fun memories with your friends!<br><br>
+      Looking forward to seeing you all there!
+    </p>
+    <p style="margin:20px 0 0 0;font-size:14px;color:#111111;"><strong>Best wishes,</strong><br>Alakananda Council</p>
   </td></tr>
 
   <!-- Footer -->
@@ -275,31 +323,27 @@ export const uploadAndSendQRCodes = async (req, res) => {
       log(`📤 Sending batch ${batchNumber} (${batch.length} emails)...`);
 
       for (const person of batch) {
-        const { name, email, nonVegCount, vegCount, totalCount, qrs } = person;
+        const { name, email, rollNo, food_type, uuid, qrBuffer } = person;
 
-        // Build CID attachments — one per QR code
-        const attachments = qrs.map((qr) => ({
-          filename: `${qr.food_type.replace('-', '_')}_Coupon_${qr.index}.png`,
-          content: qr.qrBuffer,
-          encoding: 'base64',
-          cid: `qr-${qr.uuid}`,          // referenced as src="cid:qr-{uuid}" in HTML
-        }));
-
-        const summaryText = [
-          nonVegCount > 0 ? `${nonVegCount} Non-Veg` : null,
-          vegCount > 0    ? `${vegCount} Veg`         : null,
-        ].filter(Boolean).join(', ');
+        const attachments = [
+          {
+            filename: `${food_type.replace('-', '_')}_Coupon.png`,
+            content: qrBuffer,
+            encoding: 'base64',
+            cid: 'qr-main',
+          },
+        ];
 
         try {
           await transporter.sendMail({
             from: process.env.SENDER_EMAIL,
             to: email,
-            subject: `Greeshma Sandhya '26 — Your ${totalCount} Entry Coupon${totalCount > 1 ? 's' : ''}`,
-            text: `Hello ${name}, Greetings from Kerala Kala Samiti! You have ${totalCount} coupon(s) for Greeshma Sandhya '26 on 24 April 2026, 6:00 PM at SAC. Breakdown: ${summaryText}. Your QR codes are attached — each is for one meal. Do not share them; each QR can be used only once. Hope to see you there! സ്നേഹപൂർവ്വം, കേരള കലാസമിതി`,
+            subject: `Alakananda Hostel Nite 2026 — Your Entry Coupon (${food_type})`,
+            text: `Hello ${name} (${rollNo}), Greetings from Alakananda Hostel! You have 1 ${food_type} coupon for Alakananda Hostel Nite 2026 on Friday, 1st May 2026, 7:30 PM at Alakananda Ground. Your QR code is attached — it can be used only once. Do not share it. Get ready for a night full of good vibes and fun! Best wishes, Alakananda Council`,
             html: buildEmailHTML(person),
             attachments,
           });
-          log(`✅ MAIL SENT | ${email} (${name}) — ${totalCount} QR(s): ${summaryText}`);
+          log(`✅ MAIL SENT | ${email} (${name} / ${rollNo}) — ${food_type}`);
         } catch (mailErr) {
           log(`❌ MAIL FAIL | ${email} (${name}) — ${mailErr.message}`);
         }

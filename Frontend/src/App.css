@@ -113,3 +113,26 @@ html, body {
 .restart-btn:hover {
   background: #333;
 }
+
+/* Food preference badge */
+.food-badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.food-badge.veg {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.food-badge.non-veg {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}

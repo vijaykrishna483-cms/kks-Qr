@@ -1,11 +1,16 @@
-[2026-04-24T09:34:47.012Z] ========== NEW RUN STARTED ==========
-[2026-04-24T09:34:47.025Z] 📋 Loaded 1 rows from bbq.csv
-[2026-04-24T09:34:48.524Z] ✅ DB INSERT | vijay762005@gmail.com — Non-Veg #1 — UUID 3ce22a0c-a803-43d0-8728-36c6d7425e11
-[2026-04-24T09:34:48.753Z] ✅ DB INSERT | vijay762005@gmail.com — Non-Veg #2 — UUID 2b71ed23-90cf-4168-a874-d74957f2be4d
-[2026-04-24T09:34:48.973Z] ✅ DB INSERT | vijay762005@gmail.com — Non-Veg #3 — UUID e7cd3d66-d61b-43a6-92a9-db78e55369e6
-[2026-04-24T09:34:49.193Z] ✅ DB INSERT | vijay762005@gmail.com — Veg #1 — UUID 15a2c077-207c-48cf-adfa-229813ebc3cb
-[2026-04-24T09:34:49.386Z] 🎨 QR images generated for all 1 recipients
-[2026-04-24T09:34:49.388Z] 📤 Sending batch 1 (1 emails)...
-[2026-04-24T09:34:50.593Z] ✅ MAIL SENT | vijay762005@gmail.com (Edamana Prasad) — 4 QR(s): 3 Non-Veg, 1 Veg
-[2026-04-24T09:34:50.595Z] ✅ Batch 1 complete
-[2026-04-24T09:34:50.596Z] ========== RUN COMPLETE ==========
+[2026-05-01T08:25:27.179Z] ========== NEW RUN STARTED ==========
+[2026-05-01T08:25:27.185Z] 📋 Loaded 1 rows from bbq.csv
+[2026-05-01T08:25:28.588Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in (NA23B021) — Veg — UUID 78c69f38-7254-46d4-8411-45a428b65435
+[2026-05-01T08:25:28.613Z] 🎨 QR images generated for all 1 recipients
+[2026-05-01T08:25:28.614Z] 📤 Sending batch 1 (1 emails)...
+[2026-05-01T08:25:29.348Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay / NA23B021) — Veg
+[2026-05-01T08:25:29.349Z] ✅ Batch 1 complete
+[2026-05-01T08:25:29.349Z] ========== RUN COMPLETE ==========
+[2026-05-01T08:29:06.772Z] ========== NEW RUN STARTED ==========
+[2026-05-01T08:29:06.777Z] 📋 Loaded 1 rows from bbq.csv
+[2026-05-01T08:29:08.332Z] ✅ DB INSERT | na23b021@smail.iitm.ac.in (NA23B021) — Non-Veg — UUID 10b1b32e-ecff-4f22-bf1b-62b95e322fd0
+[2026-05-01T08:29:08.354Z] 🎨 QR images generated for all 1 recipients
+[2026-05-01T08:29:08.355Z] 📤 Sending batch 1 (1 emails)...
+[2026-05-01T08:29:09.128Z] ✅ MAIL SENT | na23b021@smail.iitm.ac.in (Vijay / NA23B021) — Non-Veg
+[2026-05-01T08:29:09.128Z] ✅ Batch 1 complete
+[2026-05-01T08:29:09.129Z] ========== RUN COMPLETE ==========

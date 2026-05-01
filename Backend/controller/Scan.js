@@ -31,12 +31,12 @@ export const scanQrCode = async (req, res) => {
       [uuid]
     );
 
-    // ✅ Return verified details including food_type (Non-Veg / Veg)
+    // ✅ Return verified details — name, roll_no, food preference
     res.json({
       message: 'QR verified successfully',
       user: {
         name:      record.name,
-        email:     record.email,
+        roll_no:   record.roll_no,
         food_type: record.food_type,   // 'Non-Veg' or 'Veg'
       },
     });

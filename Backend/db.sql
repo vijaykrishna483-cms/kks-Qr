@@ -1,10 +1,16 @@
--- Drop old table if migrating
--- DROP TABLE IF EXISTS qr_codes;
+-- ─── ALTER qr_codes table for new CSV structure ──────────────────────────────
+-- New CSV format: email, Name, Roll No, Food Preference
+-- Each person gets exactly 1 QR code.
+-- We only need to ADD the roll_no column; the rest (uuid, name, email, used, food_type) stay.
 
-CREATE TABLE qr_codes (
-    uuid       VARCHAR(255) PRIMARY KEY,
-    name       VARCHAR(255) NOT NULL,
-    email      VARCHAR(255) NOT NULL,          -- NOT unique; one person has multiple QR rows
-    food_type  VARCHAR(50)  NOT NULL,          -- 'Non-Veg' or 'Veg'
-    used       BOOLEAN      DEFAULT FALSE
-);
+ALTER TABLE qr_codes
+  ADD COLUMN IF NOT EXISTS roll_no VARCHAR(50) NOT NULL DEFAULT '';
+
+-- After running the above, update roll_no DEFAULT to NOT NULL without a default
+-- (optional cleanup — run only if you want to enforce it going forward):
+-- ALTER TABLE qr_codes ALTER COLUMN roll_no DROP DEFAULT;
+
+-- To verify:
+-- SELECT column_name, data_type, character_maximum_length, is_nullable, column_default
+-- FROM information_schema.columns
+-- WHERE table_name = 'qr_codes';

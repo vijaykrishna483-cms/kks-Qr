@@ -130,7 +130,7 @@ const App = () => {
   return (
    <div className="scanner-container">
   <h1 className="title">
-    <span className="title-event">Greeshma Sandhya '26</span>
+    <span className="title-event">Alakananda Hostel Nite 2026</span>
     <span className="title-sub">QR Scanner</span>
   </h1>
 
@@ -149,10 +149,15 @@ const App = () => {
 
   {userInfo && (
     <div className="user-card">
-      <h3>Scanned User Details</h3>
+      <h3>Scanned Details</h3>
       <p><strong>Name:</strong> {userInfo.name}</p>
-      <p><strong>Email:</strong> {userInfo.email}</p>
-      <p><strong>Food Type:</strong> {userInfo.food_type}</p>
+      <p><strong>Roll No:</strong> {userInfo.roll_no}</p>
+      <p>
+        <strong>Food Preference:</strong>{" "}
+        <span className={`food-badge ${userInfo.food_type === 'Non-Veg' ? 'non-veg' : 'veg'}`}>
+          {userInfo.food_type}
+        </span>
+      </p>
     </div>
   )}
 
